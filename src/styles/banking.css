@@ -1,0 +1,431 @@
+/* ============================================================
+   COMPLEXITY SECURITY LAB — Banking Portal Styles
+   Modern digital banking UI with glassmorphism
+   ============================================================ */
+
+/* ── Banking Section ─────────────────────────────────────── */
+#banking {
+  background: var(--bg-gradient);
+  position: relative;
+  overflow: hidden;
+}
+
+#banking::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 20%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(0, 255, 136, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* ── Login Container ─────────────────────────────────────── */
+.banking-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  gap: var(--space-16);
+  flex-wrap: wrap;
+}
+
+.banking-login__branding {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.banking-login__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.banking-login__logo-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--gradient-cyan);
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: var(--glow-cyan);
+}
+
+.banking-login__logo-text {
+  font-size: var(--font-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+}
+
+.banking-login__logo-text span {
+  color: var(--accent-cyan);
+}
+
+.banking-login__tagline {
+  font-size: var(--font-4xl);
+  font-weight: var(--weight-black);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-4);
+}
+
+.banking-login__tagline .highlight {
+  background: var(--gradient-cyan);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.banking-login__description {
+  color: var(--text-secondary);
+  font-size: var(--font-lg);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-6);
+}
+
+.banking-login__features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.banking-login__feature {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
+}
+
+.banking-login__feature-icon {
+  color: var(--accent-green);
+  font-size: var(--font-lg);
+}
+
+/* ── Login Form Card ─────────────────────────────────────── */
+.banking-login__form-wrapper {
+  flex: 0 0 420px;
+  max-width: 420px;
+}
+
+.banking-login__form {
+  padding: var(--space-8);
+}
+
+.banking-login__form h3 {
+  font-size: var(--font-xl);
+  font-weight: var(--weight-semi);
+  margin-bottom: var(--space-6);
+  text-align: center;
+}
+
+.banking-login__form .input-group {
+  margin-bottom: var(--space-4);
+}
+
+.banking-login__form .btn {
+  margin-top: var(--space-4);
+}
+
+.banking-login__error {
+  background: var(--accent-red-dim);
+  border: 1px solid rgba(255, 71, 87, 0.3);
+  color: var(--accent-red);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  margin-top: var(--space-3);
+  display: none;
+  animation: fadeIn var(--duration-base) ease;
+}
+
+.banking-login__error.visible {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.banking-login__hint {
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--accent-cyan-dim);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: var(--radius-md);
+  font-size: var(--font-xs);
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: var(--leading-relaxed);
+}
+
+.banking-login__hint code {
+  color: var(--accent-cyan);
+  background: rgba(0, 212, 255, 0.1);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-xs);
+}
+
+/* ── Banking Dashboard ───────────────────────────────────── */
+.banking-dashboard {
+  display: none;
+  animation: fadeIn var(--duration-slow) var(--ease-out);
+}
+
+.banking-dashboard.active {
+  display: block;
+}
+
+.banking-dashboard__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.banking-dashboard__welcome {
+  font-size: var(--font-2xl);
+  font-weight: var(--weight-bold);
+}
+
+.banking-dashboard__welcome span {
+  color: var(--accent-cyan);
+}
+
+.banking-dashboard__date {
+  color: var(--text-muted);
+  font-size: var(--font-sm);
+}
+
+/* ── Balance Cards ───────────────────────────────────────── */
+.banking-balance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.banking-balance-card {
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+}
+
+.banking-balance-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: var(--space-4);
+}
+
+.banking-balance-card__icon--primary {
+  background: var(--accent-cyan-dim);
+}
+
+.banking-balance-card__icon--success {
+  background: var(--accent-green-dim);
+}
+
+.banking-balance-card__icon--warning {
+  background: var(--accent-amber-dim);
+}
+
+.banking-balance-card__icon--purple {
+  background: var(--accent-purple-dim);
+}
+
+.banking-balance-card__label {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-1);
+}
+
+.banking-balance-card__value {
+  font-size: var(--font-2xl);
+  font-weight: var(--weight-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Credit Card Visual ──────────────────────────────────── */
+.banking-credit-card {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1.586 / 1;
+  background: linear-gradient(135deg, #1a1a4e 0%, #2d1b69 40%, #1a1a4e 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+              0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.banking-credit-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.15), transparent 70%);
+  pointer-events: none;
+}
+
+.banking-credit-card::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -30%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.1), transparent 70%);
+  pointer-events: none;
+}
+
+.banking-credit-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.banking-credit-card__chip {
+  width: 48px;
+  height: 36px;
+  background: linear-gradient(135deg, #f0c27f, #c4975a);
+  border-radius: var(--radius-sm);
+  position: relative;
+}
+
+.banking-credit-card__chip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  right: 4px;
+  height: 1px;
+  background: rgba(0,0,0,0.2);
+}
+
+.banking-credit-card__brand {
+  font-size: var(--font-xl);
+  font-weight: var(--weight-bold);
+  color: white;
+  opacity: 0.9;
+}
+
+.banking-credit-card__number {
+  font-family: var(--font-mono);
+  font-size: var(--font-xl);
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.banking-credit-card__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  z-index: 1;
+}
+
+.banking-credit-card__holder {
+  font-size: var(--font-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.banking-credit-card__holder strong {
+  display: block;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: var(--font-base);
+}
+
+.banking-credit-card__expiry {
+  text-align: right;
+  font-size: var(--font-xs);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.banking-credit-card__expiry strong {
+  display: block;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: var(--font-base);
+  font-family: var(--font-mono);
+}
+
+/* ── Dashboard Content Grid ──────────────────────────────── */
+.banking-dashboard__content {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.banking-dashboard__disclaimer {
+  margin-top: var(--space-8);
+  padding: var(--space-4) var(--space-6);
+  background: var(--accent-amber-dim);
+  border: 1px solid rgba(255, 165, 2, 0.2);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--font-sm);
+  color: var(--accent-amber);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .banking-dashboard__content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .banking-login {
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+  
+  .banking-login__form-wrapper {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .banking-login__tagline {
+    font-size: var(--font-2xl);
+  }
+  
+  .banking-credit-card__number {
+    font-size: var(--font-base);
+  }
+}
+
+/* ── Shake animation for login errors ────────────────────── */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}

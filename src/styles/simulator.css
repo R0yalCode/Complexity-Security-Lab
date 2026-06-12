@@ -1,0 +1,337 @@
+/* ============================================================
+   COMPLEXITY SECURITY LAB — Simulator Styles
+   Interactive controls, real-time calculations, risk gauge
+   ============================================================ */
+
+#simulator {
+  background: linear-gradient(180deg, var(--bg-primary) 0%, #0d1220 100%);
+}
+
+.simulator-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+/* ── Controls Panel ──────────────────────────────────────── */
+.simulator-controls {
+  padding: var(--space-6);
+  position: sticky;
+  top: 100px;
+}
+
+.simulator-controls__title {
+  font-size: var(--font-lg);
+  font-weight: var(--weight-semi);
+  margin-bottom: var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.simulator-control-group {
+  margin-bottom: var(--space-6);
+}
+
+.simulator-control-group__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.simulator-control-group__name {
+  font-size: var(--font-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-secondary);
+}
+
+.simulator-control-group__value {
+  font-size: var(--font-sm);
+  font-weight: var(--weight-bold);
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+}
+
+.simulator-toggles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.simulator-compute-select {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.compute-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.compute-option:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--glass-border-hover);
+}
+
+.compute-option.active {
+  background: var(--accent-cyan-dim);
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.compute-option input[type="radio"] {
+  display: none;
+}
+
+.compute-option__radio {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--text-muted);
+  position: relative;
+  flex-shrink: 0;
+  transition: all var(--duration-base) ease;
+}
+
+.compute-option.active .compute-option__radio {
+  border-color: var(--accent-cyan);
+}
+
+.compute-option.active .compute-option__radio::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--accent-cyan);
+}
+
+.compute-option__icon {
+  font-size: 1.2rem;
+}
+
+.compute-option__info {
+  flex: 1;
+}
+
+.compute-option__name {
+  font-size: var(--font-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+
+.compute-option__speed {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* ── Results Panel ───────────────────────────────────────── */
+.simulator-results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.simulator-result-card {
+  padding: var(--space-6);
+}
+
+.simulator-result-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.simulator-result-card__title {
+  font-size: var(--font-base);
+  font-weight: var(--weight-semi);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ── Combinations Display ────────────────────────────────── */
+.combinations-display {
+  text-align: center;
+  padding: var(--space-8) var(--space-4);
+}
+
+.combinations-display__formula {
+  font-family: var(--font-mono);
+  font-size: var(--font-xl);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.combinations-display__formula .highlight {
+  color: var(--accent-cyan);
+  font-weight: var(--weight-bold);
+}
+
+.combinations-display__result {
+  font-size: var(--font-5xl);
+  font-weight: var(--weight-black);
+  background: var(--gradient-cyan);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: var(--font-mono);
+  line-height: 1.2;
+  margin-bottom: var(--space-2);
+}
+
+.combinations-display__label {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+}
+
+/* ── Time Estimates Grid ─────────────────────────────────── */
+.time-estimates-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.time-estimate-card {
+  padding: var(--space-4);
+  text-align: center;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all var(--duration-base) ease;
+}
+
+.time-estimate-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-2px);
+}
+
+.time-estimate-card__icon {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-2);
+}
+
+.time-estimate-card__label {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  margin-bottom: var(--space-2);
+  font-weight: var(--weight-medium);
+}
+
+.time-estimate-card__time {
+  font-size: var(--font-lg);
+  font-weight: var(--weight-bold);
+  font-family: var(--font-mono);
+}
+
+.time-estimate-card__speed {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+  font-family: var(--font-mono);
+}
+
+/* ── Risk Gauge ──────────────────────────────────────────── */
+.risk-gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-6);
+}
+
+.risk-gauge__meter {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  position: relative;
+}
+
+.risk-gauge__meter-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    #ff4757 0%, 
+    #ff6b81 20%, 
+    #ffa502 40%, 
+    #f7d047 60%, 
+    #7bed9f 80%, 
+    #00ff88 100%);
+  border-radius: var(--radius-pill);
+  opacity: 0.3;
+}
+
+.risk-gauge__meter-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 0.8s var(--ease-out);
+  position: relative;
+  z-index: 1;
+}
+
+.risk-gauge__label {
+  font-size: var(--font-2xl);
+  font-weight: var(--weight-bold);
+  text-align: center;
+}
+
+.risk-gauge__description {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* ── Complexity Badge ────────────────────────────────────── */
+.complexity-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--accent-purple-dim);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: var(--font-base);
+  font-weight: var(--weight-semi);
+  color: var(--accent-purple);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .simulator-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .simulator-controls {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .time-estimates-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .combinations-display__result {
+    font-size: var(--font-3xl);
+  }
+}

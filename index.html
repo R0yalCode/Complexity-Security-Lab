@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complexity Security Lab</title>
+  
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="./src/styles/variables.css">
+  <link rel="stylesheet" href="./src/styles/base.css">
+  <link rel="stylesheet" href="./src/styles/components.css">
+  <link rel="stylesheet" href="./src/styles/banking.css">
+  <link rel="stylesheet" href="./src/styles/laboratory.css">
+  <link rel="stylesheet" href="./src/styles/simulator.css">
+  <link rel="stylesheet" href="./src/styles/charts.css">
+  <link rel="stylesheet" href="./src/styles/education.css">
+  
+  <!-- Chart.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <style>
+    /* Navbar styles here for simplicity, could be in components.css */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 70px;
+      background: rgba(10, 14, 26, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      z-index: var(--z-nav);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--space-6);
+    }
+    
+    .navbar__brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-weight: var(--weight-bold);
+      font-size: var(--font-lg);
+      color: var(--text-primary);
+    }
+    
+    .navbar__brand-icon {
+      color: var(--accent-cyan);
+      font-size: 1.4rem;
+    }
+    
+    .navbar__nav {
+      display: flex;
+      gap: var(--space-1);
+    }
+    
+    .navbar__link {
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-pill);
+      color: var(--text-secondary);
+      font-size: var(--font-sm);
+      font-weight: var(--weight-medium);
+      transition: all var(--duration-base) ease;
+    }
+    
+    .navbar__link:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    
+    .navbar__link.active {
+      color: var(--accent-cyan);
+      background: var(--accent-cyan-dim);
+    }
+    
+    #app {
+      padding-top: 70px; /* Offset for navbar */
+    }
+
+    @media (max-width: 768px) {
+      .navbar__nav {
+        display: none; /* simple mobile nav approach for now */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__brand">
+      <span class="navbar__brand-icon">🛡️</span>
+      Complexity Security Lab
+    </div>
+    <div class="navbar__nav" id="nav-links">
+      <a href="#banking" class="navbar__link active">Portal</a>
+      <a href="#laboratory" class="navbar__link">Laboratorio (SOC)</a>
+      <a href="#simulator" class="navbar__link">Simulador</a>
+      <a href="#visualizations" class="navbar__link">Visualizaciones</a>
+      <a href="#blockchain" class="navbar__link">Criptografía</a>
+    </div>
+  </nav>
+
+  <!-- App Container -->
+  <main id="app">
+    <!-- Pantalla 1: Portal Bancario -->
+    <section id="banking" class="section">
+      <div class="section__inner" id="banking-container"></div>
+    </section>
+
+    <!-- Pantalla 2: Laboratorio de Complejidad (SOC) -->
+    <section id="laboratory" class="section">
+      <div class="section__inner" id="laboratory-container"></div>
+    </section>
+
+    <!-- Simulador Interactivo -->
+    <section id="simulator" class="section">
+      <div class="section__inner" id="simulator-container"></div>
+    </section>
+
+    <!-- Visualizaciones y Análisis -->
+    <section id="visualizations" class="section">
+      <div class="section__inner" id="visualizations-container"></div>
+    </section>
+
+    <!-- Sección Educativa (Blockchain y Conceptos) -->
+    <section id="blockchain" class="section">
+      <div class="section__inner" id="blockchain-container"></div>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 0.8rem;">
+    <p>Proyecto Universitario Exclusivamente Educativo. No se realizan ataques reales ni se procesan datos verdaderos.</p>
+  </footer>
+
+  <!-- App Entry Point -->
+  <script type="module" src="./src/app.js"></script>
+
+</body>
+</html>

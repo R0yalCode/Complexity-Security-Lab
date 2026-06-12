@@ -1,0 +1,314 @@
+/* ============================================================
+   COMPLEXITY SECURITY LAB — Charts Styles
+   ============================================================ */
+
+#visualizations {
+  background: linear-gradient(180deg, #0d1220 0%, var(--bg-primary) 100%);
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.chart-card {
+  padding: var(--space-6);
+}
+
+.chart-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.chart-card__title {
+  font-size: var(--font-base);
+  font-weight: var(--weight-semi);
+}
+
+.chart-card__notation {
+  font-family: var(--font-mono);
+  font-size: var(--font-sm);
+  font-weight: var(--weight-semi);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+}
+
+.chart-card__notation--linear {
+  background: var(--accent-cyan-dim);
+  color: var(--accent-cyan);
+}
+
+.chart-card__notation--quadratic {
+  background: var(--accent-amber-dim);
+  color: var(--accent-amber);
+}
+
+.chart-card__notation--exponential {
+  background: var(--accent-red-dim);
+  color: var(--accent-red);
+}
+
+.chart-card__canvas-wrapper {
+  position: relative;
+  height: 240px;
+}
+
+.chart-card__canvas-wrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.chart-card__description {
+  margin-top: var(--space-4);
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* ── Combined Chart ──────────────────────────────────────── */
+.chart-combined {
+  padding: var(--space-8);
+}
+
+.chart-combined__canvas-wrapper {
+  height: 400px;
+  position: relative;
+}
+
+.chart-combined__canvas-wrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.chart-combined__legend {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-8);
+  margin-top: var(--space-4);
+}
+
+.chart-combined__legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.chart-combined__legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .chart-combined__canvas-wrapper {
+    height: 280px;
+  }
+}
+
+
+/* ============================================================
+   Security Analysis Styles
+   ============================================================ */
+
+#security-analysis {
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.analysis-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.analysis-input-section {
+  padding: var(--space-8);
+  margin-bottom: var(--space-8);
+  text-align: center;
+}
+
+.analysis-input-wrapper {
+  max-width: 500px;
+  margin: 0 auto var(--space-6);
+}
+
+.analysis-input-wrapper .input-field {
+  font-size: var(--font-lg);
+  padding: var(--space-4) var(--space-5);
+  text-align: center;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+.analysis-btn {
+  padding: var(--space-4) var(--space-10);
+  font-size: var(--font-lg);
+}
+
+/* ── Analysis Results ────────────────────────────────────── */
+.analysis-results {
+  display: none;
+  animation: fadeInUp var(--duration-slow) var(--ease-out);
+}
+
+.analysis-results.active {
+  display: block;
+}
+
+.analysis-progress {
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.analysis-progress__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.analysis-progress__status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-sm);
+  font-weight: var(--weight-semi);
+}
+
+.analysis-progress__percent {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  color: var(--accent-cyan);
+}
+
+.analysis-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.analysis-stat {
+  text-align: center;
+  padding: var(--space-4);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-md);
+}
+
+/* ── Time Scale Visualization ────────────────────────────── */
+.time-scale {
+  padding: var(--space-6);
+}
+
+.time-scale__title {
+  font-size: var(--font-lg);
+  font-weight: var(--weight-semi);
+  margin-bottom: var(--space-6);
+  text-align: center;
+}
+
+.time-scale__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.time-scale__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  transition: all var(--duration-base) ease;
+}
+
+.time-scale__item.active {
+  background: rgba(255, 255, 255, 0.04);
+  transform: scale(1.02);
+}
+
+.time-scale__item-icon {
+  font-size: 1.3rem;
+  min-width: 30px;
+  text-align: center;
+}
+
+.time-scale__item-bar {
+  flex: 1;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.time-scale__item-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 1s var(--ease-out);
+}
+
+.time-scale__item-label {
+  min-width: 200px;
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.time-scale__item-time {
+  min-width: 120px;
+  text-align: right;
+  font-size: var(--font-sm);
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+/* ── Result Verdict ──────────────────────────────────────── */
+.analysis-verdict {
+  padding: var(--space-8);
+  text-align: center;
+  margin-top: var(--space-6);
+}
+
+.analysis-verdict__icon {
+  font-size: 4rem;
+  margin-bottom: var(--space-4);
+}
+
+.analysis-verdict__title {
+  font-size: var(--font-3xl);
+  font-weight: var(--weight-bold);
+  margin-bottom: var(--space-3);
+}
+
+.analysis-verdict__description {
+  font-size: var(--font-lg);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: var(--leading-relaxed);
+}
+
+@media (max-width: 768px) {
+  .analysis-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .time-scale__item {
+    flex-wrap: wrap;
+  }
+  
+  .time-scale__item-label {
+    min-width: auto;
+  }
+}
